@@ -1,8 +1,8 @@
 <?php
-$host = getenv('DB_HOST');
-$user = getenv('DB_USER');
-$password = getenv('DB_PASSWORD');
-$dbname = getenv('DB_NAME');
+$host = getenv('sql12.freesqldatabase.com');
+$user = getenv('sql12757417');
+$password = getenv('t8vhnWCTIy');
+$dbname = getenv('sql12757417');
 
 $conn = new mysqli($host, $user, $password, $dbname);
 
