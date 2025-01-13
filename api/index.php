@@ -1,6 +1,6 @@
 <?php
-// Sertakan file koneksi dari folder khsusu
-include('khusus/kon.php');
+// Sertakan file koneksi dari folder khusus
+include('kon.php');
 
 // Fungsi dekripsi
 function decrypt($data, $key) {
@@ -29,7 +29,6 @@ if (isset($_GET['data'])) {
     $name = "Saudara Di Tempat"; // Jika parameter nama tidak ada
 }
 ?>
-
 <html class="hydrated">
 
 <head>
@@ -226,6 +225,7 @@ if (isset($_GET['data'])) {
 
 <body class=" stop-scrolling " data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0"
     style="position: relative;">
+   
     <div class="body-single font-secondary" id="bodysingle">
         <div class="fixed z-50 w-full" id="envelope">
             <div class="relative bg-color pb-32 h-screen z-50" id="openEnvelope">

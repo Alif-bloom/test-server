@@ -1,10 +1,6 @@
 <?php
 // Koneksi ke database
-$conn = new mysqli('localhost', 'root', '', 'undangan');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+include('kon.php');
 // Fungsi enkripsi
 function encrypt($data, $key) {
     return urlencode(base64_encode(openssl_encrypt($data, 'AES-128-CTR', $key, 0, '1234567891011121'))); 

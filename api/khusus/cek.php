@@ -1,12 +1,6 @@
 <?php
 // Koneksi ke database
-$conn = new mysqli('localhost', 'root', '', 'undangan');
-
-// Cek koneksi
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+include('kon.php');
 // Tambahkan data ke database
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
