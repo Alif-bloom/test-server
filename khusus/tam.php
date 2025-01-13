@@ -98,7 +98,7 @@ $result = $conn->query("SELECT name FROM recipients");
             while ($row = $result->fetch_assoc()) {
                 $name = $row['name'];
                 $encryptedName = encrypt($name, $key);
-                $link = "http://localhost/test-server/index.php?data=" . $encryptedName;
+                $link = "https://test-server-dun-theta.vercel.app/" . $encryptedName;
 
                 // Menggunakan Bitly untuk mempersingkat URL
                 $shortenedLink = shortenUrl($link);
