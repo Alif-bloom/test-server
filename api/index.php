@@ -1,22 +1,11 @@
 <?php
-// Sertakan file koneksi dari folder khusus
+// Koneksi ke database
 include('kon.php');
-
-// Fungsi dekripsi
-function decrypt($data, $key) {
-    return openssl_decrypt(base64_decode(urldecode($data)), 'AES-128-CTR', $key, 0, '1234567891011121');
-}
-
-$key = "secretkey"; // Ganti dengan kunci yang sama dengan yang digunakan untuk enkripsi
-
-// Ambil parameter 'data' dari URL dan dekripsi
-if (isset($_GET['data'])) {
-    $encryptedName = $_GET['data'];
-    $decryptedName = decrypt($encryptedName, $key);
-
-    // Cek apakah nama ditemukan di database
+// Ambil nama dari database
+$name = 'Tamu'; // Default jika tidak ada data
+if (isset($_GET['nama'])) {
     $stmt = $conn->prepare("SELECT name FROM recipients WHERE name = ?");
-    $stmt->bind_param("s", $decryptedName);
+    $stmt->bind_param("s", $_GET['nama']);
     $stmt->execute();
     $stmt->bind_result($name);
     if ($stmt->fetch()) {
@@ -26,7 +15,7 @@ if (isset($_GET['data'])) {
     }
     $stmt->close();
 } else {
-    $name = "Saudara Di Tempat"; // Jika parameter nama tidak ada
+    $name = "Saudara di tempat"; // Jika parameter nama tidak ada
 }
 ?>
 <html class="hydrated">

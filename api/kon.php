@@ -1,11 +1,14 @@
 <?php
-$host = getenv('sql12.freesqldatabase.com');
-$user = getenv('sql12757417');
-$password = getenv('t8vhnWCTIy');
-$dbname = getenv('sql12757417');
+// Database configuration
+$host = 'sql12.freesqldatabase.com';
+$username = 'sql12757417';
+$password = ' t8vhnWCTIy'; // Masukkan password sesuai email Anda
+$database = 'sql12757417';
 
-$conn = new mysqli($host, $user, $password, $dbname);
+// Create connection
+$conn = new mysqli($host, $username, $password, $database);
 
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
