@@ -1,23 +1,4 @@
-<?php
-// Koneksi ke database
-include('kon.php');
-// Ambil nama dari database
-$name = 'Tamu'; // Default jika tidak ada data
-if (isset($_GET['nama'])) {
-    $stmt = $conn->prepare("SELECT name FROM recipients WHERE name = ?");
-    $stmt->bind_param("s", $_GET['nama']);
-    $stmt->execute();
-    $stmt->bind_result($name);
-    if ($stmt->fetch()) {
-        // Nama ditemukan
-    } else {
-        $name = "Tidak ditemukan"; // Nama default jika tidak ada data
-    }
-    $stmt->close();
-} else {
-    $name = "Saudara di tempat"; // Jika parameter nama tidak ada
-}
-?>
+
 <html class="hydrated">
 
 <head>
@@ -216,36 +197,7 @@ if (isset($_GET['nama'])) {
     style="position: relative;">
    
     <div class="body-single font-secondary" id="bodysingle">
-        <div class="fixed z-50 w-full" id="envelope">
-            <div class="relative bg-color pb-32 h-screen z-50" id="openEnvelope">
-                <div class="absolute top-0 right-0 z-0 decor-envelope"> <img
-                        src="https://diginvikreasi.b-cdn.net/assets/goinvite/themes2/rustic-29/main-0.webp"></div>
-                <div class="absolute bottom-0 left-0 z-0 decor-envelope"> <img
-                        src="https://diginvikreasi.b-cdn.net/assets/goinvite/themes2/rustic-29/main-1.webp"></div>
-                <div class="z-20 block p-inherit font-color-mode">
-                    <div class="text-center pt-20 ">
-                        <div class="flex justify-center">
-                            <div class=" mt-24 relative" style="margin-top:6vh">
-                                <div style="background: url('https://diginvikreasi.b-cdn.net/goinvite/1736006819-04CCC103-4093-3734-0FAD-461961819E89.jpg') no-repeat center; background-size:cover; border-radius: 100%;width: 10rem;height: 15rem; box-shadow: 0 0 0 7px var(--bg-cover-color), 0 0 0 8px var(--border-decor-color-cover);margin:auto"
-                                    class="h-full" data-transform-origin="center center"></div>
-                            </div>
-                        </div>
-                        <h3 class="font-one font-color-mode mt-6 mb-3">Izal &amp; Qintan</h3>
-                    </div>
-                    <div class="text-center pt-8 ">
-                        <p class="font-four text-sm">Kepada Bapak/Ibu/Saudara/i</p>
-                        <p class="text-2xl font-semibold mb-4"><?= htmlspecialchars($name) ?></p>
-                        <p class="font-four text-sm">Bekasi</p>
-                        <p class="font-four mt-2" style="font-size: 10px">Kami mengundang Anda untuk hadir di acara
-                            pernikahan kami.</p> <button type="button"
-                            class="font-three m-auto flex py-3 px-8 rounded-full mt-6" style="background:#b17a46">
-                            <ion-icon class="text-white w-5 h-5 mr-2 md hydrated" name="mail-open-outline" role="img"
-                                aria-label="mail open outline"></ion-icon> <span
-                                class="text-white font-three text-sm">Buka Undangan</span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <div >
             <div id="musicContainer"
                 class="bg-color-one font-color-three fixed z-50 bottom-24 left-2 h-12 w-12 overflow-y-scroll flex justify-center items-center rounded-full hidden ">
